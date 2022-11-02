@@ -1,0 +1,39 @@
+.lightbox{    
+    //animation: moving-light 2s alternate infinite;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    @keyframes moving-light {
+        0%{
+            transform:rotateZ(0);
+        }
+        100%{
+            transform:rotateZ(180deg);
+        }
+    }
+    &__light{
+        width:50px;
+        height:0px;
+        border-top : 50px solid white;
+        border-left: 12.5px solid transparent;
+        border-right: 12.5px solid transparent;
+        position:relative;
+        
+        // &::after{
+        //     content:'';
+        //     width:20px;
+        //     height:0px;
+        //     //border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+        //     border-top : 100vw solid white;
+        //     border-left: 25px solid transparent;
+        //     border-right: 25px solid transparent;
+        //     position: absolute;        
+        //     bottom:50px;
+        //     left:-20px;
+        // }
+    }
+    &__beam{
+
+        height:100vw;
+    }
+}

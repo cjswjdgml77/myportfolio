@@ -1,0 +1,97 @@
+@import "../../App.scss";
+@import "../../container/navbar/navbar.scss";
+.navbutton{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    position:relative;
+    border:none;
+
+    &::before{
+        content:'';
+        position:absolute;
+        width: 100%;
+        height:2px;
+        bottom:0;
+        transform: translateX(-500%);
+        opacity: 0;
+        background:$myThemeColor;
+        transition: all 0.5s ease;
+    }
+    &::after{
+        content:'';
+        position:absolute;
+        width:60%;
+        bottom:0;
+        height:2px;
+        opacity: 0;
+        transform: translateX(300%);
+        background:$myThemeColor;
+        transition: all 0.5s ease;
+    }
+    &.navbutton__active{
+        border:none;
+        &::before{
+            width:80%;
+            opacity: 0.8 !important;
+            transform: translateX(0%) translateY(5px) !important;
+        }
+        &::after{
+            opacity: 0.8 !important;
+            transform: translateX(0%) !important;
+
+        }
+        a{
+            transform: translateY(0px); //!important;
+            animation: slightup 0.5s ease both ;//!important;
+            @keyframes slightup {
+                0%{
+                    transform: translateY(0px); //!important;
+                }
+                50%{
+                    transform: translateY(-5px);// !important;
+                }
+                100%{
+                    transform: translateY(0px); //!important;
+                }
+            }
+
+        }
+        
+    }
+
+    &:hover{
+        &::before{
+            transform: translateX(0%);
+            opacity: 0.8;
+        }
+        a{
+            transform: translateY(-40%);
+            //animation:navbutton-scaleup both 0.5s ease;
+            @keyframes navbutton-scaleup{
+                0%{
+                    scale:1;
+                    transform: translateY(0%);
+                }
+                100%{
+                    transform: translateY(-40%);
+                    scale:1.1;
+                }
+            }
+        }
+    }
+    a{  
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration:none;
+        color:$myThemeColor;
+        transform: translateY(0%);
+        transition: all 0.5s ease;
+
+        &:active{
+            outline: none;
+            color:$myThemeColor;
+        }        
+    }
+}
+

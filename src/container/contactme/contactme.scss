@@ -1,0 +1,186 @@
+@import "../../App.scss";
+.contactme{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height: 100vh;
+    padding-top:5vw;
+    position:relative;
+    &__title{
+        padding-bottom:5vw;
+        font-size:40px;
+        color:$myFontColor;
+        opacity: 0;
+        transform:translateY(70%);
+        transition: all 1s ease;
+    }
+
+    &__email{
+        display:flex;
+        width:100%;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        flex:2;
+        background:$myThemeColor;
+        position: relative;
+        opacity: 0;
+        transform:translateY(40%);
+        transition: all 1s ease;
+
+        &::before{
+            content:'';
+            position:absolute;
+            width:100%;
+            height:100%;
+            top:-20px;
+            box-sizing : border-box;
+            left:0;
+            border-top: 2px solid $myThemeColor;
+        }
+        &::after{
+            content:'';
+            position:absolute;
+            width:100%;
+            height:100%;
+            top:20px;
+            box-sizing : border-box;
+            left:0;
+            border-bottom: 2px solid $myThemeColor;
+        }
+       
+        &-content{
+            text-align: center;
+            font-size: 30px;
+            z-index: 100;
+            color:white;
+            text-shadow: 2px 2px #8f8d8d;
+            position:relative;
+            
+            &::before{
+                content:'Do you want to work together or have any questions ?';
+                position:absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                text-shadow: 2px 2px #8f8d8d;
+                
+            }
+            
+        }
+        &:hover{
+            .contactme__email-content{
+                &::before{
+                    animation : emailScale 0.5s alternate infinite ;
+                    @keyframes emailScale{
+                        from{
+                            scale: 1.05;
+                            transform: translateY(-10px);
+                            opacity: 1;
+                        }
+                        to{
+                            scale: 1;
+                            transform: translateY(0px);
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+            .contactme__email-inputbox{
+                scale:1;
+                transform: translateY(0%);
+            }
+        }
+        &-inputbox{
+            display:flex;
+            margin-top:25px;
+            font-size:20px;
+            scale:0;
+            transform: translateY(-200%);
+            transition: all 0.5s ease;
+            transition-delay: 1s;
+            z-index: 999;
+            &__input{
+                flex:1;
+                background:white;
+                color:$myFontColor;
+                padding : 1vw 5vw;
+                font-weight:800;
+                text-align:center;
+                font-size:inherit;
+            }
+            &__email{
+                text-decoration:none;
+                padding : 1vw 1vw;
+                font-size:inherit;
+                background: black;
+                border:2px solid white;
+                text-align:center;
+                color:white;
+                position:relative;
+                &:hover{
+                    //animation : 
+                }
+            }
+        }
+        
+    }
+
+    &__copyright{
+        flex:1;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        width:auto;
+        padding: 0 10vw;
+        &-letters{
+            font-size:25px;
+            transform:translateY(0px);
+            transition: all 1s ease;
+        }
+        &:hover{
+            @for $i from 1 to 28 {
+                :nth-child(#{$i}){
+                    animation: letterTopDownMoving 0.5s ease;
+                    animation-delay: $i * .1s ;// - $i/3*0.1s;
+                    @keyframes letterTopDownMoving{
+                        0%{
+                            transform:translateY(0px);
+                        }
+                        50%{
+                            background: -webkit-linear-gradient(#eee, $myThemeColor);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            transform:translateY(-30px);
+                        }  
+                        100%{
+                            transform:translateY(0px);
+                        }  
+                    }
+                }
+            }
+        }
+    }
+}
+
+.contactme-show{
+    opacity: 1;
+    transform:translateY(0);
+}
+.contactme-copyright-show{
+    .contactme__copyright-letters{
+        animation: letterTopDown 0.5s ease both;
+        @keyframes letterTopDown{
+            0%{
+                transform:translateY(-30px);
+            }
+            100%{
+                transform:translateY(0px);
+
+            }  
+        }
+    }
+}

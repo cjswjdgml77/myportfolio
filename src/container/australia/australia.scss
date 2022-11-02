@@ -1,0 +1,154 @@
+@import "../../App.scss";
+.australia{
+    display:flex;
+    width:100%;
+    height:100vh;
+    overflow: hidden;
+    flex-direction: column;
+    position:relative;
+    bottom:0;
+    opacity: 0;
+    //transition: all 1s cubic-bezier(0.075, 0.03, 0.247, 1);
+    background: transparent;
+    &__box{
+        position:absolute;
+        width:100%;
+        height:100%;
+        background: transparent;
+        transform-origin: 90% 60%;
+        opacity: 0;
+        border:5px solid white;
+        transition: all 1s cubic-bezier(0.075, 0.03, 0.247, 1);
+        transition-delay: 3s;
+        svg{
+            path{
+                stroke:black;
+                stroke-dasharray: 1000;
+                stroke-dashoffset: 1000;
+            }
+        }
+    }
+    &__title{
+        display:flex;
+        justify-content: center;
+        padding:3vw;
+        z-index: 40;
+        font-size:40px;
+        :nth-child(n){
+            transition: all 4s ease;
+            color:$myThemeColor;
+            opacity: 0;
+        }
+        // :nth-child(3){
+        //     margin-right:0.5vw;
+        // }
+        // :nth-child(5){
+        //     margin-right:0.5vw;
+        // }
+        @for $i from 1 through 14{
+            :nth-child(n+#{$i}){
+                margin: random(100) *1% ;
+            }
+        }
+        &:hover{
+            :nth-child{
+                color:green;
+            }
+        }
+    }
+    &__airplane{
+        position:absolute;
+        width:10vw;
+        z-index: 999;
+        top:45%;
+        left:50%;
+        scale:2;
+        transform: rotateZ(45deg);
+        
+        svg{
+            g{
+                fill:white;
+                path{
+                    stroke:white;
+                }
+            }
+        }
+    }
+
+    &__lightbox{
+        width:100%;
+        position:absolute;
+        bottom:-50px;
+        display:flex;
+        justify-content:space-between;
+        &-left{
+            position: relative;
+            display:flex;
+        }
+        &-right{
+            position: relative;
+            display:flex;
+        }
+    }
+}
+
+.australia-visible{
+   opacity: 1;
+}
+
+.australia-box-visible{
+    border:none;
+    background:black;
+    opacity: 1;
+    border:5px solid white;
+    animation:sydney-animate 1s cubic-bezier(0.075, 0.03, 0.247, 1) both ;
+    animation-delay: 3s;
+    transform-origin: 90% 60%;
+    @keyframes sydney-animate{
+        0%{
+            transform: scale(0);
+        }
+        100%{
+            transform:scale(1);
+        }
+    }
+    svg{
+        path{
+            stroke:black;
+            animation: draw-sydney 3s linear forwards;
+            animation-delay: 4s;
+            @keyframes draw-sydney {
+                to {
+                    stroke:white;
+                    stroke-dashoffset: 0;
+                }
+            }
+        }
+    }
+}
+.australia-title-visible{
+        :nth-child(n){
+            transition-delay: 4100ms;
+            opacity: 1;
+            margin:0px;
+        }
+}
+.australia-airplane-flying{
+    animation: flyingAirplane 3s linear both;
+    @keyframes flyingAirplane {
+        0%{
+            top:0;
+            left:20%;
+            scale: 3;
+        }
+        90%{
+            scale: 3;
+            opacity: 1;
+        }
+        100%{
+            top:80%;
+            left:70%;
+            opacity: 0;
+        }
+    }
+}

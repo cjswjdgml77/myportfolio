@@ -1,0 +1,538 @@
+$linecircle :10px;
+
+.myabout{
+
+    display:flex;
+    width:100%;
+    height:auto;
+    padding:5vw 10vw;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+    
+    &__myname{
+        z-index: 99;
+        opacity: 0;
+        transform: translateY(50%);
+        position:relative;
+        transition: all 1s ease;
+        span{
+            font-weight:500;
+            font-size: 50px;
+            position:relative;
+            display:block;
+            background: white;
+            z-index: 88;
+            transition: all 0.5s ease;
+
+            &::after{
+                content:'';
+                position:absolute;
+                width:100%;
+                height:100%;
+                //background:url('../../assets/name-arrow-right.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                
+            }
+        }
+        &:hover{
+            span{
+                
+                transform:translateY(50%);
+                padding:3px;
+            }
+            div{
+                position:absolute;
+                background: black;
+            }
+            :nth-child(2){
+                left:0;
+                bottom:0%;
+                animation : drawspan1 0.2s ease both;
+                animation-delay: var(--draw);
+                z-index: 99;
+                @keyframes drawspan1{
+                    0%{
+                        height:0;
+                        width:1px;
+                    }
+                    100%{
+                        width:1px;
+                        height:50%;
+                    }
+                }
+            }
+            :nth-child(3){
+                left:0;
+                top:50%;
+                animation : drawspan2 0.2s ease both;
+                animation-delay: var(--draw);
+                z-index: 99;
+                @keyframes drawspan2{
+                    0%{
+                        height:1px;
+                        width:0%;
+                    }
+                    100%{
+                        width:100%;
+                        height:1px;
+                    }
+                }
+            }
+            :nth-child(4){
+                right:0;
+                top:50%;
+                animation : drawspan3 0.2s ease both;
+                animation-delay: var(--draw);
+                z-index: 99;
+                @keyframes drawspan3{
+                    0%{
+                        height:0;
+                        width:1px;
+                    }
+                    100%{
+                        width:1px;
+                        height:100%;
+                    }
+                }
+            }
+            :nth-child(5){
+                top:150%;
+                right:0;
+                animation : drawspan4 0.2s ease both;
+                animation-delay: var(--draw);
+                z-index: 99;
+                @keyframes drawspan4{
+                    0%{
+                        height:1px;
+                        width:0%;
+                    }
+                    100%{
+                        width:100%;
+                        height:1px;
+                    }
+                }
+            }
+            :nth-child(6){
+                left:0;
+                bottom: -50%;
+                animation : drawspan5 1s ease both;
+                animation-delay: var(--draw);
+                z-index: 99;
+                @keyframes drawspan5{
+                    0%{
+                        height:0;
+                        width:1px;
+                    }
+                    100%{
+                        width:1px;
+                        height:50%;
+                    }
+                }
+            }
+        }
+    }
+    &__myphoto{
+        opacity: 0;
+        transform: translateY(20%);
+        width:70%;
+        height:30vw;
+        background: url('../../assets/myphoto.jpeg');
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat:no-repeat;
+        position:relative;
+        transition: all 0.5s ease;
+        transition-delay: 0.5s;
+    }
+
+    // my content ---------------
+    &__content{
+        margin-top:20px;
+        width:70%;
+        display:flex;
+        flex-direction: column;
+
+        &-myself{
+            width:100%;
+            margin-top: 5vw;
+            display:flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(20%);
+            transition: all 1s ease;
+            overflow: hidden;
+            padding-top: calc($linecircle/2);
+            &__top{
+                width:50%;
+                height:2px;
+                background:black;
+                margin-bottom:2vw;
+                position:relative;
+                transform: rotateZ(180deg) translateX(-110%);
+                transform-origin: center right;
+                transition: all 0.5s ease;
+                transition-delay: 1s;
+
+                &::after{
+                    content:'';
+                    position:absolute;
+                    right:0;
+                    width:$linecircle;
+                    height:$linecircle;
+                    background: black;
+                    transform:translateY(-50%);
+                    border-radius: 50%;                    
+                }
+            }
+            &__context{
+                display:flex;
+            }
+
+            &__left{
+                flex:1;
+                
+            }
+
+            &__right{
+                flex:1;
+                display:flex;
+                flex-direction:column;
+
+                &-topcontent{
+                    display:flex;
+                    flex-direction:column;
+                    
+                }
+
+                &-bottomcontent{
+                    display:flex;
+                    flex-direction:column;
+                }
+            }
+        }
+
+        &-moreabout{
+            opacity: 0;
+            transform: translateY(20%);
+            transition: all 1s ease;
+            display: flex;
+            flex-direction:column;
+            margin-top: 5vw;
+            overflow: hidden;
+            padding-top: calc($linecircle/2);
+            &__top{
+                width:50%;
+                height:2px;
+                background:black;
+                margin-bottom:2vw;
+                position:relative;
+                transform:translateX(-100%);
+                transition: all 0.5s ease;
+                transition-delay: 1s;
+
+                &::after{
+                    content:'';
+                    position:absolute;
+                    right:0;
+                    width:$linecircle;
+                    height:$linecircle;
+                    background: black;
+                    transform:translateY(-50%);
+                    border-radius: 50%;                    
+                }
+            }
+        }
+
+        &-photos{
+            opacity: 0;
+            transform: translateY(20%);
+            transition: all 1s ease;
+            display: flex;
+            flex-direction:column;
+            margin-top: 10vw;
+            overflow: hidden;
+            padding-top: calc($linecircle/2);
+            &__top{
+                width:100%;
+                height:2px;
+                background:black;
+                margin-bottom:2vw;
+                position:relative;
+                transform: rotateZ(180deg) translateX(-110%);
+                transition: all 0.5s ease;
+                transition-delay: 1s;
+
+                &::after{
+                    content:'';
+                    position:absolute;
+                    right:0;
+                    width:$linecircle;
+                    height:$linecircle;
+                    background: black;
+                    transform:translateY(-50%);
+                    border-radius: 50%;                    
+                }
+            }
+            &__title{
+                margin-bottom:2vw;
+            }
+            &__context{
+                display:grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                gap:2vw;
+                height:auto;
+                padding-bottom:5vw;
+                &-div{
+                    transform:translateX(100%);
+                    transition:all 0.5s ease-in-out;
+                    transition-delay: calc( var(--delay) * 150ms);
+                    opacity: 0;
+                    display:flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    &::after{
+                        content:'';
+                        display:block;
+                        padding-bottom:100%;
+                    }
+
+                    &__box{
+                        position:absolute;
+                        width:100%;
+                        height:100%;
+                        display:flex;
+                        flex-direction:column;
+                        justify-content: center;
+                        align-items: center;
+                        box-shadow:  6px 6px 20px rgba(0, 0, 0, 0.6);                     
+
+                        p{
+                            color:white;
+                             
+                        }
+                        &.first{
+                            background:rgb(92, 92, 179);
+
+                        }  
+                        &.second{
+
+                            background:rgb(29, 29, 165);
+                        }
+                        &::after{
+                            content:'View';
+                            text-align: center;
+                            cursor: pointer;
+                            color:transparent;
+                            line-height: 60px;
+                            position: absolute;
+                            width:100%;
+                            height:100%;
+                            border-radius: 0%;
+                            background: transparent;
+                            transition:all 0.5s ease;
+                        }
+                        &:hover{
+                            cursor: pointer;
+                            filter:brightness(0.8);
+                            &::after{
+                                color:white;
+                                width:50%;
+                                height:50%;
+                                background: rgb(0, 0, 0);
+                                border-radius: 100%;
+                            }
+                        }
+                    }
+                   
+                }
+                @media screen and (max-width : 668px){
+                    grid-template-columns: 1fr 1fr;
+
+                }
+            }
+        }
+    }
+}
+.slideshow{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%);
+}
+
+.myabout__myname:hover + .myabout__myphoto{
+        transform: none;
+        background-size: 95% 95%;
+        div{
+            position:absolute;
+        }
+        :nth-child(1){
+            left:0%;
+            background: black;
+            animation: drawtop1 0.5s ease both;
+            animation-delay: var(--draw);
+            @keyframes drawtop1{
+                0%{
+                    width:0%;
+                    height:2px;
+
+                }
+                100%{
+                    width:50%;
+                    height:2px;
+
+                }
+            }
+        }
+        :nth-child(2){
+
+            left:50%;
+            background: black;
+            animation: drawtop2 0.5s ease both;
+            animation-delay: var(--draw);
+            @keyframes drawtop2{
+                0%{
+                    width:0%;
+                    height:2px;
+
+                }
+                100%{
+                    width:50%;
+                    height:2px;
+
+                }
+            }
+        }
+        :nth-child(3){
+            right:0;
+            background: black;
+            animation: drawtop3 0.5s ease both;
+            animation-delay: var(--draw);
+            @keyframes drawtop3{
+                0%{
+                    width:2px;
+                    height:0%;
+
+                }
+                100%{
+                    width:2px;
+                    height:100%;
+
+                }
+            }
+        }
+        :nth-child(4){
+            bottom:0;
+            right:0;
+            background: black;
+            animation: drawtop4 0.5s ease both;
+            animation-delay: var(--draw);
+            @keyframes drawtop4{
+                0%{
+                    width:0%;
+                    height:2px;
+
+                }
+                100%{
+                    width:100%;
+                    height:2px;
+
+                }
+            }
+        }
+        :nth-child(5){
+            bottom:0;
+            left:0;
+            background: black;
+            animation: drawtop5 0.5s ease both;
+            animation-delay: var(--draw);
+            @keyframes drawtop5{
+                0%{
+                    width:2px;
+                    height:0%;
+
+                }
+                100%{
+                    width:2px;
+                    height:100%;
+
+                }
+            }
+        }
+}
+
+.top-line-move1{
+  transform: rotateZ(180deg) translateX(0%);
+}
+
+.top-line-move2{
+   transform:translateX(0%);
+}
+
+.pictures{
+    opacity: 1 ;
+    transform:translateX(0%) ;
+}
+
+.myabout-visible{
+    transform:translateY(0%);
+    opacity: 1;
+}
+
+@media screen and (max-width: 768px){
+    .myabout{
+        padding:0;
+        h1{
+            margin:1vw 0;
+        }
+        h2{
+            margin-top:1vw;
+        }
+        p{
+            margin-top:0.5vw;
+        }
+        &__myname{
+            span{
+                font-size:35px;
+            }
+        }
+        &__content{
+            &-myself{
+                &__context{
+                    flex-direction:column;
+                }
+                
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 468px){
+    .myabout{
+        padding:0;
+        h1{
+            margin:1vw 0;
+        }
+        h2{
+            margin-top:1vw;
+        }
+        p{
+            margin-top:0.5vw;
+        }
+        &__myname{
+            span{
+                font-size:25px;
+            }
+        }
+        &__content{
+            &-myself{
+                &__context{
+                    flex-direction:column;
+                }
+                
+            }
+        }
+    }
+}

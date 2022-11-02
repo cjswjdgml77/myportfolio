@@ -1,0 +1,297 @@
+@import "../../App.scss";
+.contact{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    flex:1;
+    position: relative;
+    
+    &__contactme{
+        display:flex;
+        height:calc(100vh - 70px);
+        padding:3vw;
+        
+        &-man{
+            flex:1;
+            z-index: 100;
+            position: relative;
+            transform: translateX(5vw);
+
+        }
+        &-outerior{
+            flex:5;
+            background : $myThemeColor;
+            padding: 2vw 1vw 1vw 1vw;
+            position:relative;
+            opacity: 0;
+            transform:translateX(100%);
+            transition: all 1s ease;
+            &.slide{
+                opacity: 1;
+                transform:translateX(0);
+            }
+            &__buttons{
+                position:absolute;
+                top:0;
+                height:2vw;
+                button{
+                    height:100%;
+                }
+            }
+
+            &__inside{
+                width:100%;
+                height:100%;
+                background: white;
+                display:flex;
+                padding: 15px 0px;
+                &-left{
+                    flex:1;
+                    display: flex;
+                    flex-direction:column;
+                    align-items: center;
+                    justify-content: center;
+                    background:url('../../assets/contactme.png');
+                    background-size: 160% 100%;
+                    background-repeat:no-repeat;
+                    color:#3b444b;
+                    position:relative;
+                    :nth-child(1){
+                        position:absolute;
+                        right:15%;
+                        :nth-child(1){
+                            position:relative;
+                            font-size:12px;
+                            color:red;
+                        }
+                    }
+                }
+                &-right{
+                    flex:1;
+                    display:flex;
+                    flex-direction: column;
+                    padding: 10px 10px;
+                    position:relative;
+                    &__emailform{
+                        flex:9;
+                        display:flex;
+                        flex-direction:column;
+                        padding-bottom:10px;
+                        position:relative;
+                        &-namearea{
+                            display:flex;
+                            flex:1;
+                            & + & {
+                                margin: 5px;
+                            }
+
+                        }
+                        &-subject{
+                            flex:1;
+                            margin-top: 10px;
+                        }
+                        &-content{
+                            flex:5;
+                            margin-top: 10px;
+                            border:1px solid #cdcdcd;
+                            textarea{
+                                width:100% !important;
+                                height:100% !important;
+                                border:none;
+                                font-size: 20px;
+                                padding:1vw;
+                                &:focus{
+                                    outline: 1px solid $myThemeColor;
+                                }
+                                &::placeholder{
+                                    letter-spacing:20px;
+                                    color:#dacfcf;
+                                }
+                            }
+                            .textvalid{
+                                border:1px solid red;
+                                &::placeholder{
+                                    letter-spacing:20px;
+                                    color:red;
+                                }
+                            }
+                        }
+                        
+                    }
+                    &__sendbtnbox{
+                        flex:1;
+                        position:relative;
+                        width:70%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border: 4px solid $myThemeColor;
+                        border-radius: 60px;
+                        transition: all 2s ease;
+                        padding : 0px 20px;
+                        overflow:hidden;
+                        &::before{
+                            content:'';
+                            width:0;
+                            height:100%;
+                            background:$myThemeColor;
+                            left:0;
+                            position:absolute;
+                            border: 4px solid $myThemeColor;
+                            border-radius: 60px;
+                            transition:all 0.5s ease;
+                        }
+                        &:hover{
+                            &::before{
+                                width:100%;
+                                background:$myThemeColor;
+                                border: 4px solid $myThemeColor;
+                            }
+
+                            button{
+                                color:black;
+                                &::before{
+                                    content:'You';
+                                    color:white;
+                                }
+                            }
+                            :nth-child(2){
+                                svg{
+                                    fill:white;
+                                }                                
+                            }
+                            :nth-child(3){
+                                svg{
+                                    fill:white;
+                                }        
+                            }
+                            :nth-child(4){
+                                svg{
+                                    fill:white;
+                                }   
+                            
+                            }
+                            :nth-child(5){
+                                &::before{
+                                    content:'Me';
+                                    position: relative;
+                                    color:white;
+                                }
+                            }
+                            svg{
+                                margin-left: 10px;
+                                color:white;
+                            }
+                        }
+                        &-sendbtn{
+                            position:relative;
+                            text-align:left;
+                            width:auto;
+                            border:none;
+                            height:100%;
+                            background: transparent;
+                            transition:all 0.7s ease;
+                            border-right: none;
+                            color:#3b444b;
+                            &::before{
+                                content:'Send me';
+                                width:100%;
+                                height:100%;
+                            }
+                        }
+                        &-senddiv{
+                            width:20%;
+                            height:100%;
+                            animation :arrowscale 1s infinite;
+                            animation-delay: var(--i);
+                            transition:all 1s ease;
+                            
+                            @keyframes arrowscale {
+                                0%{
+                                    opacity: 0;
+                                }
+                                10%{
+                                    opacity: 1;
+                                    scale: 1.3;
+                                }
+                                20%{
+                                    opacity: 1;
+                                }
+                                100%{
+                                    opacity: 0;
+                                }
+                            }
+            
+                        }
+                        :nth-child(5){
+                            display:flex;
+                            align-items: center;
+                        }
+                        &-mail{
+                            transition:all 0.7s ease;
+                            color:#3b444b;
+                            position:relative;
+                            transform: translateX(0%);
+                            &.wrong{
+                                animation:vibrate 1s ;
+                                @keyframes vibrate{
+                                    0%{
+                                        transform: translateX(-5%);
+                                    }
+                                    10%{
+                                        transform: translateY(5%);
+                                    }
+                                    20%{
+                                        transform: translateY(-5%);
+                                    }
+                                    30%{
+                                        transform: translateX(5%);
+                                    }
+                                    40%{
+                                        transform: translateY(5%);
+                                    } 
+                                    50%{
+                                        transform: translateX(5%);
+                                    }   
+                                    60%{
+                                        transform: translateY(-5%);
+                                    }
+                                    70%{
+                                        transform: translateY(5%);
+                                    }
+                                    80%{
+                                        transform: translateX(5%);
+                                    }
+                                    90%{
+                                        transform: translateX(-5%);
+                                    }
+                                    100%{
+                                        transform: translateY(5%);
+                                    }
+                                }
+                            }
+                        }
+
+                       
+                    }
+                }
+            }
+        }
+        &-side{
+            flex:1;
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .contact{
+        &__contactme{
+            height:100vh;
+            &-outerior{
+                &__inside{
+                    flex-direction:column;
+                }
+            }
+        }
+    }
+}

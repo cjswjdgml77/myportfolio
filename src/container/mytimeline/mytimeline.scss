@@ -1,0 +1,288 @@
+@import '../../App.scss';
+
+.mytimeline-animation{
+    .mytimeline__coverline{
+        width:0%;
+    }
+    .mytimeline__top-content{
+        &::before{
+            transition-delay : calc(0.5 * var(--delay)) !important;
+            width:50% !important;    
+        }
+        &::after{
+            transition-delay : calc(0.5 * var(--delay)) !important;
+            opacity: 1 !important;
+
+        }
+    }
+    .mytimeline__bottom-content{
+        &::before{
+            transition-delay : calc(0.5 * var(--delay)) !important;
+            width:50% !important;    
+        }
+        &::after{
+            transition-delay : calc(0.5 * var(--delay)) !important;
+            opacity: 1 !important;
+
+        }
+    }
+    .mytimeline__clickinfo{
+        opacity:1;
+        transform : translateY(0%); 
+    }
+}
+
+.mytimeline{
+    width:100%;
+    height:80vh;
+    padding: 0px 10vw;
+    display:flex;
+    position:relative;
+    flex-direction:column;
+    transition : all 1s ease;
+    &__line{
+        // &::before{
+        //     content:'';
+        //     position:absolute;
+        //     width:80%;
+        //     height:4px;
+        //     margin-left: 10vw;
+        //     top:50%;
+        //     left:0;
+        //     background: black;
+        // }
+    }
+    &__coverline{
+        width:80%;
+        height:100%;
+        position:absolute;
+        right:10%;
+        background: white;
+        transition: all 1s ease;
+        z-index: 100;
+    }
+    &__clickyears{
+        width:var(--yearwidth);
+        height:var(--yearheight);
+        position:absolute;
+        top:var(--yeartop);
+        left:var(--yearleft);
+        background:url('../../assets/highlight.png');
+        background-size: cover;
+        transition: all 0.8s ease-in-out;
+        &.scaleyears{
+            scale :0;
+            animation: scaleyears 0.8s ease-in-out both;
+            @keyframes scaleyears {
+                0%{
+                    scale :0;
+                }
+                100%{
+                    scale:1;
+                }
+            }
+        }
+    }
+    &__clickinfo{
+        position:absolute;
+        bottom:10%;
+        display:flex;
+        width:80%;
+        height:auto;
+        justify-content:center;
+
+        
+        font-size:30px;
+        opacity: 0;
+        transform: translateY(8vw);
+        transition: all 2s ease;
+    }
+    &__middle{
+        width:100%;
+        height:4px;
+        background: black;
+    }
+    &__top{
+        flex:1;
+        display:flex;
+        align-items: flex-end;
+        position:relative;
+        &-content{
+            flex:1;
+            height:auto;
+            position:relative;
+            font-size:20px;
+            &::before{
+                content:'';
+                position:absolute;
+                width:0%;
+                height:2px;
+                background: black;
+                transform-origin: left;
+                transform: translateX(1.2em) rotateZ(-90deg);
+                transition: all 0.5s ease;
+            }
+            &::after{
+                background:white;
+                position:absolute;
+                transform-origin: left;
+                width:var(--mywidth);
+                height:auto;
+                left:1.1em;
+                word-break: break-all;
+                top:var(--parentwidth);
+                z-index: 100;
+                opacity: 0;
+                transition: all 0.5s ease;
+
+            }
+            &.first{
+                
+                &::after{
+                    content:'jegdfdsafdsafds';
+                    
+                }
+            }
+            &.second{
+              
+                &::after{
+                    content:'jeg';
+                   
+                }
+            }
+            &.third{
+                
+                &::after{
+                    content:'jeg';
+                    
+                }
+            }
+            &.forth{
+                
+                &::after{
+                    content:'jeg';
+        
+                }
+            }
+            &.fifth{
+                
+                &::after{
+                    content:'jeg';
+                   
+                }
+            }
+            &__year{
+                width:auto;
+                
+            }
+        }
+    }
+    &__bottom{
+        flex:1;
+        flex:1;
+        display:flex;
+        align-items: flex-start;
+        position:relative;
+
+        :nth-child(2n){
+            &::before{
+                content:'';
+                position:absolute;
+                bottom:0;
+                width:0%;
+                height:2px;
+                background: black;
+                transform-origin: left;
+                transform: translateX(1.2em) rotateZ(90deg);
+                transition: all 0.5s ease;
+            }
+            &::after{
+                background:white;
+                position:absolute;
+                transform-origin: left;
+                width:var(--mywidth);
+                height:auto;
+                left:1.1em;
+                word-break: break-all;
+                top:var(--parentwidth);
+                opacity: 0;
+                transition: all 0.5s ease;
+                z-index: 100;
+            }
+        }
+        &-content{
+            flex:1;
+            
+            position:relative;
+            
+            &.first{
+                
+                &::after{
+                    content:'jegdfdsafdsafds';
+                    
+                }
+            }
+            &.second{
+              
+                &::after{
+                    content:'jeg';
+                   
+                }
+            }
+            &.third{
+                
+                &::after{
+                    content:'jeg';
+                    
+                }
+            }
+            &.forth{
+                
+                &::after{
+                    content:'jeg';
+        
+                }
+            }
+            &.fifth{
+                
+                &::after{
+                    content:'jeg';
+                   
+                }
+            }
+            &__year{
+                width:auto;
+            }
+        }
+    }
+   
+}
+
+@media screen and (max-width: 768px) {
+    .mytimeline{
+       // transform:rotateZ(90deg);
+        // &__top{
+        //     &-content{
+        //         transform-origin : left bottom;
+        //         transform: rotateZ(-90deg);
+        //         &::before{
+                  
+        //             transform: translateX(2.2em) translateY(0.6em) rotateZ(0deg);
+        //         }
+        //         &::after{
+        //             left: 50%;
+        //             top:0;
+        //             //top:var(mywidth);
+        //             //:var(--parentwidth);
+        //             transform: translateX(2.2em) ;
+        //         }
+        //     }
+        // }
+        // &__bottom{
+        //     &-content{
+        //         transform-origin : left top;
+                
+        //     }
+        // }
+    }
+}

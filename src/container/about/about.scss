@@ -1,0 +1,189 @@
+@import "../../App.scss";
+.about__bg{
+    background:linear-gradient(180deg,#70b var(--gradientPercentage),   #00008b 100% );
+    // background-image: url('../../assets/starssky.png') , linear-gradient(180deg,#70b var(--gradientPercentage),   #00008b 100% );
+    // background-repeat: no-repeat;
+    // background-repeat: no-repeat, no-repeat;
+    background-position: bottom right, bottom;
+    width:100%;
+    height:var(--height);
+    position:absolute;
+    animation : myBgAnimate 1s ease-in-out both;
+    border-radius: 100%;
+    @keyframes myBgAnimate {
+        0%{
+            bottom : var(--svgbottom);
+            width: var(--svgwidth);
+            height: var(--svgheight);
+            right:var(--right);
+        }
+        10%{
+            bottom:var(--bottom);
+        }
+        30%{
+            bottom:var(--bottom);
+            border-radius: 50%;
+        }
+        70%{
+            border-radius: 0%;
+
+            bottom:var(--bottom);
+
+        }
+        100%{
+            border-radius: 0%;
+            bottom:var(--bottom);
+            width:100%;
+            right:0;
+            height:var(--height);
+        }
+    }
+}
+.about{
+    width:100%;
+    height: 80vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    overflow: hidden;
+    //background: radial-gradient(circle , white 20%, black 100%);
+    background-position: 50px 50px;
+    background-repeat : no-repeat;
+    z-index: 5;
+    &__contentbox{
+        width:90%;
+        height:70%;
+        //border: 2px solid $myThemeColor;
+        position:relative;
+        //background:white;
+        display: flex;
+        transform: translateY(20%);
+        visibility: hidden;
+        opacity: 0;
+        transition : all 1s ease;
+        &-left{
+            flex:1;
+            transition: all 1s ease 1s;
+            opacity: 0;
+            transform: translateY( 25%);
+            p{
+                font-size:20px;
+                //text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+                // -webkit-text-stroke: 0.5px black;
+                // background: transparent;
+                // -webkit-background-clip: text;
+                // -webkit-text-fill-color: transparent;
+                z-index:100;
+                &::after{
+                    content:'';
+                    top:0;
+                    left:0;
+                    position:absolute;
+                    width:200px;
+                    height:100px;
+                    background: rgba(24, 145, 197, 0.4);
+                }
+            }
+            // &::after{
+            //     content:'';
+            //     position:absolute;
+            //     width:0%;
+            //     height:0%;
+            //     border-bottom: 350px solid orange;
+            //     border-left: 20px solid transparent;
+            //     border-right: 20px solid transparent;
+            
+            // }
+        }
+        &-right{
+            flex:1;
+            transition: all 1s ease 1.25s;
+            opacity: 0;
+            transform: translateY( 35%);
+            .svg__g-move{
+                transform : translate(30%, 0%);
+                opacity: 0;
+                transition: all 3s ease 1.25s;
+            }
+        }
+    }
+}
+.leftContainerBg{
+    background: linear-gradient(245deg, );
+}
+.myblubanimation{
+    fill:#53ebff;
+    animation: fillAnimate 0.5s steps(10) 1.15s;
+    @keyframes fillAnimate{
+        0%{
+            fill:#53ebff;
+        }
+        10%{
+            fill:none;
+        }
+        20%{
+            fill:#53ebff;
+        }
+        30%{
+            fill:none;
+        }
+        40%{
+            fill:#53ebff;
+        }
+        50%{
+            fill:none;
+        }
+        60%{
+            fill:#53ebff;
+        }
+        70%{
+            fill:none;
+        }
+        80%{
+            fill:#53ebff;
+        }
+        90%{
+            fill:none;
+        }
+        100%{
+            fill:#53ebff;
+        }
+    }
+}
+.leftlight{
+    svg{
+
+    }
+    // &::after{
+    //     content:'';
+    //     position:absolute;
+    //     width:30%;
+    //     height:0%;
+    //     top:var(--topPos);
+    //     border-bottom: 411px solid black;
+    //     border-left: 20px solid transparent;
+    //     border-right: 20px solid transparent;
+    // }
+}
+.showabout{
+    .about__contentbox{
+            visibility: visible;
+            transform: translateY(0);
+            opacity: 1; 
+            .about__contentbox-left{
+                opacity: 1;
+                transform: translateX( 0%);
+            }
+            .about__contentbox-right{
+                opacity: 1;
+                transform: translateX( 0%);
+                overflow:hidden;
+                .svg__g-move{
+                    opacity: 1;
+                    transform : translate(0%, 0%);
+                }
+            }
+    }
+}
+

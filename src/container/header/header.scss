@@ -1,0 +1,369 @@
+@import "../../App.scss";
+$borderW : 3px;
+$halfMove : 20px;
+$smallMove : 10px;
+$secondTransY : -1.5px;
+$thirdTransY : -3px;
+$boxW : 40px;
+$boxH : 15px;
+
+.header{
+    display:flex;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    background: white ;
+    &__left{
+        flex:1;
+        display:flex;
+        width:100%;
+        height:100%;
+        position:relative;
+        background: radial-gradient(circle , $myThemeColor 5%, white  30%);
+        &-cloudy{
+            top:var(--cloudy-top);
+            left:var(--cloudy-left);
+            transition:all 0.5s ease;
+            position:absolute;
+            width:10vw;
+            
+            &__rain{
+                width:10vw;
+                height:100%;
+                position:absolute;
+                visibility: hidden;
+                transition: all 1s ease;
+                opacity: 0;
+                &.rain-active{
+                    opacity: 1;
+                    visibility: visible;
+                }
+                span{
+                    width:1vw;
+                    height:1vw;
+                    background: #b0d8fa;
+                    position:absolute;
+                    transform:rotateZ(45deg);
+                    border-radius : 0% 100% 58% 39% / 3% 49% 50% 97%;
+                }
+                @for $i from 1 through 20{
+                    :nth-child(n + #{$i}){
+                        $mytop : random(100)* 1%;
+                        bottom:  $mytop;
+                        left: random(100) * 1%; 
+                        animation:dropwater_#{$i} infinite;
+                        animation-duration: random(20)*200ms;
+                        @keyframes dropwater_#{$i} {
+                            0%{
+                                bottom:100%;
+                            }
+                            100%{
+                                bottom:0%;
+                            }
+                        }
+                    }                    
+                }
+                
+            }
+        }
+        &-introduce{
+            position: absolute;
+            width:100%;
+            height: 100%;
+            display:flex;
+            flex-direction:column;
+            justify-content: space-evenly;
+            padding-left:50px;
+            padding-top:50px;
+            padding-bottom:50px;
+            font-family: inherit;
+            font-size:20px;
+            
+            &__firstdiv{
+                display:flex;
+                flex-direction: row;
+                span{
+                    color:$myThemeColor;
+                    position:relative;
+                    font-size:inherit;
+                    font-weight:600;
+                }
+            }
+            &__third{
+                position:relative;
+                
+                &-first{
+                    @for $i from 1 through 14 {
+                        :nth-child(n + #{$i}) {
+                            
+                        }
+                    }
+                }
+
+                position:relative;
+                display:flex;
+                align-items: center;
+                width:200px;
+                height:50px;
+                border : 1px solid $myDarkBlue;
+                border-radius:100px;
+
+                &-wavinghand{
+                    position:absolute;
+                    right:15px;
+                    color:$myDarkBlue;
+                    z-index: 999;
+                    transition: all 0.5s ease;
+                    transition-delay: 0.7s;
+                }
+                &::before{
+                        content:'contact me';
+                        position:absolute;
+                        width:100%;
+                        height:100%;
+                        text-align: center;
+                        line-height:50px;
+                        background: $myDarkBlue;
+                        border-radius: 100px;
+                        color:white;
+                        transition: all 0.7s ease;
+                }
+                &::after{
+                    content:'';
+                    position:absolute;
+                    width:43px;
+                    height:43px;
+                    background: white;
+                    background-size: 100% 100%;
+                    border-radius: 100%;
+                    left:5px;
+                    transition: all 0.7s ease;
+                }
+                &:hover{
+                    &::before{
+                        content:'message me  ';
+                        color: $myDarkBlue;
+                        background:white;
+                    }
+                    &::after{
+                        left:150px;
+                        background: $myDarkBlue;
+                    }
+                    svg{
+                        color:white;
+                    }
+                    
+                }
+                a{
+                    position:relative;
+                    width:100%;
+                    height: 100%;
+                    font-size:inherit;
+                    text-decoration:none;
+                    border : 2px solid $myDarkBlue;
+                    border-radius: 50px;
+                    font-weight:600;
+                    transition: all 0.7s ease;
+                    color:white;
+                    max-width: 200px;
+                    background: transparent;
+                        
+                }
+                
+            }
+            
+            &__second{
+                span{
+                    font-size:6vw;
+                }
+            }
+        }
+        .waveline{
+            position:absolute;
+            background: transparent ;
+            transform: rotateZ(12deg);
+            z-index: 1;
+            top:1vw;
+            left:14vw;
+            &:hover{
+                stroke-dasharray: 1000;
+                stroke-dashoffset: 1000;
+                animation: dash 2s linear forwards;
+                @keyframes dash {
+                    to {
+                      stroke-dashoffset: 0;
+                    }
+                  }
+                ellipse{
+                    rx:0;
+                    ry:0;
+                    animation : animate 0.2s ease 0.6s both;
+                    @keyframes animate {
+                        to{
+                            rx:10;
+                            ry:10;
+                        }
+                    }
+                }
+            }
+            ellipse{
+                rx:10;
+                ry:10;
+            }
+        }
+        .waveline2{
+            top:4vw;
+            left:30vw;
+        }
+    }
+    &__right{
+        flex:1;
+        width:100;
+        height:100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        div{
+           
+        }
+        &-koreabox{
+            width:100%; 
+           height:80%;
+          
+        }
+        &-korea{
+            path{
+                &:hover{
+                    fill:rgb(127, 123, 123);
+                }
+            }
+        }
+        &-airplane{
+            position:absolute;
+            left:var(--left);
+            top:var(--top);
+            width:50px;
+            height:50px;
+            transition:all 1s ease;
+            svg{
+                g{
+                    fill:#aec6cf;
+                }
+            }
+        }
+        &-box{
+            width:$boxW;
+            height:$boxH;
+            border : $borderW solid $myThemeColor;
+            transition : all 0.5s ease;
+            
+        }
+        
+        .edge{
+            width:5vw;
+            height:3.5vw;
+            background-image:linear-gradient(45deg, $myThemeColor, $myThemeColor);
+            position : absolute;
+            right:0;
+            top:0;
+            z-index:3;
+            transition: all 0.6s ease;
+            background-size : 100% 100% ;
+        }
+        &-boxgroup{
+            display:block;
+            position:relative;
+            justify-content: space-around;
+            height: 100%;
+            & div{
+                width:40px;
+            }
+        }
+        
+        .border-remove{
+            div{
+                border-top:none !important;
+                border-bottom: none !important;
+            }
+            :nth-child(1){
+                border-top: $borderW solid $myThemeColor !important;
+
+            }
+            :last-child{
+                border-bottom: $borderW solid $myThemeColor !important;
+            }
+
+        }
+    }
+}
+
+.header__map-show{
+    position:absolute;
+    top:var(--top);
+    left:var(--left);
+    color:$myThemeColor;
+    z-index: 9999;
+    visibility: visible;
+    transition: all 0.7s ease;
+
+}
+.header__map-hidden{
+    position:absolute;
+    visibility: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    .header{
+        flex-direction:column;
+        &__left{
+            &-introduce{
+                padding-left:20px;
+                padding-top:20px;
+                padding-bottom:20px;
+
+                &__third{
+                    width:150px;
+                    height:40px;
+                    font-size:20px;
+                    &::before{
+                        font-size: 12px;
+                        line-height: 40px;
+                    }
+                    &::after{
+                        width:31px;
+                        height:31px;
+                    }
+                    &:hover{
+                        &::after{
+                            left:107px;
+                        }
+                    }
+                    a{
+                        font-size: 5px;
+                    }
+                }
+            }
+            
+
+        }
+        .waveline2{
+            left:50vw;
+        }
+    }
+
+}
+
+@media screen and (max-width: 468px) {
+    .header{
+        flex-direction:column;
+        &__left{
+            &-introduce{
+                padding-left:10px;
+                padding-top:10px;
+                padding-bottom:10px;
+                
+            }
+        }
+    }
+}

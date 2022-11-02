@@ -1,0 +1,46 @@
+$myThemeColor:#aec6cf;
+$myFontColor:#144356;
+$myEvenBg : #f1f4f8;
+$myDarkBlue : #0C2D48;
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Lato', sans-serif;
+
+}
+body{
+  overflow-x: hidden;
+}
+// ::-webkit-scrollbar {
+//   width:10px;
+//   border-radius: 5px;
+// }
+// ::-webkit-scrollbar-track {
+  
+//    background: transparent;
+//    position:absolute;
+
+// }
+// ::-webkit-scrollbar-thumb {
+//   background: rgba(159, 159, 159, 0.335) ;
+//   border-radius: 10px;
+//   position:absolute;
+
+// }
+@font-face {
+  font-family: "BetterGrade";
+  src: local("BetterGrade"),
+   url("./assets/font/BetterGrade.ttf") format("truetype");
+}
+.cursive{
+  font-family: "BetterGrade";
+}
+.app__container {
+  display: flex;
+  flex-direction:column; 
+  height:auto;
+  position: relative;;
+  overflow-x: hidden;
+}
