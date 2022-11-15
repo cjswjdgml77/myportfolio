@@ -18,7 +18,7 @@ function World() {
       "--left",
       `${worldAus.left + worldAus.width * 0.8}px`
     );
-    window.addEventListener("scroll", (e) => {
+    const myscroll = (e) => {
       const world = document.querySelector(".world");
 
       const worldPos = document.querySelector(".world").getBoundingClientRect();
@@ -50,7 +50,11 @@ function World() {
         (20 / 4000) *
           (window.scrollY - contactme.offsetTop - window.innerHeight);
       worldMap.style.transform = `scale(${scale < 1 ? 1 : scale})`;
-    });
+    };
+    window.addEventListener("scroll", myscroll);
+    return () => {
+      window.removeEventListener("scroll", myscroll);
+    };
   });
   return (
     <div className="world">

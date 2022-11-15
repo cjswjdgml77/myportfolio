@@ -17,22 +17,7 @@ function Header() {
   const secondLine = useRef();
   const rainy = useRef();
   useEffect(() => {
-    // setTimeout(() => {
-    //   const boxArr = document.querySelector(".header__right-boxgroup");
-    //   boxArr.childNodes.forEach((node) => {
-    //     const styleClass = node.classList[0].slice(28);
-    //     node.classList.add(styleClass);
-    //     node.addEventListener("mouseenter", () => {
-    //       node.classList.add("border-remove");
-    //       node.classList.remove(styleClass);
-    //     });
-    //     node.addEventListener("mouseleave", () => {
-    //       node.classList.add(styleClass);
-    //       node.classList.remove("border-remove");
-    //     });
-    //   });
-    // }, 1500);
-    window.addEventListener("scroll", (e) => {
+    const myscroll = (e) => {
       const rightContainer = document.querySelector(".header__right");
       const rightPost = rightContainer.getBoundingClientRect();
       const daegu = document.querySelector(".korea-daegu");
@@ -44,25 +29,29 @@ function Header() {
         window.scrollY * rightWidth + (daeguPos.left - rightPost.left);
       airplane.style.setProperty("--top", `${daeguPos.top - rightPost.top}px`);
       airplane.style.setProperty("--left", `${left}px`);
-    });
-    const header = document.querySelector(".header");
-    const pathEnter = document.querySelector(".header__right-korea");
-    const span = document.createElement("span");
-    header.appendChild(span);
-    pathEnter.childNodes.forEach((path) => {
-      path.addEventListener("mouseenter", (e) => {
-        const targetPost = e.target.getBoundingClientRect();
-        span.classList.remove("header__map-hidden");
-        span.style.setProperty("--top", `${targetPost.top}px`);
-        span.style.setProperty("--left", `${targetPost.left}px`);
-        span.classList.add("header__map-show");
-        span.innerText = e.target.getAttribute("title");
+      const header = document.querySelector(".header");
+      const pathEnter = document.querySelector(".header__right-korea");
+      const span = document.createElement("span");
+      header.appendChild(span);
+      pathEnter.childNodes.forEach((path) => {
+        path.addEventListener("mouseenter", (e) => {
+          const targetPost = e.target.getBoundingClientRect();
+          span.classList.remove("header__map-hidden");
+          span.style.setProperty("--top", `${targetPost.top}px`);
+          span.style.setProperty("--left", `${targetPost.left}px`);
+          span.classList.add("header__map-show");
+          span.innerText = e.target.getAttribute("title");
+        });
+        path.addEventListener("mouseleave", (e) => {
+          const targetPost = e.target.getBoundingClientRect();
+          span.classList.add("header__map-hidden");
+        });
       });
-      path.addEventListener("mouseleave", (e) => {
-        const targetPost = e.target.getBoundingClientRect();
-        span.classList.add("header__map-hidden");
-      });
-    });
+    };
+    window.addEventListener("scroll", myscroll);
+    return () => {
+      window.removeEventListener("scroll", myscroll);
+    };
   });
   const CloudyMove = (e) => {
     const cloudyPos = cloudy.current.getBoundingClientRect();

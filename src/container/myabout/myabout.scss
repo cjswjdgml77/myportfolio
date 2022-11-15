@@ -9,7 +9,13 @@ $linecircle :10px;
     flex-direction:column;
     justify-content:center;
     align-items: center;
-    
+    p{
+        font-size : 1.2rem;
+        line-height: 1.5; 
+        color:#757575;
+        margin-top : 0.5vw;
+   
+    }
     &__myname{
         z-index: 99;
         opacity: 0;
@@ -164,6 +170,7 @@ $linecircle :10px;
             transition: all 1s ease;
             overflow: hidden;
             padding-top: calc($linecircle/2);
+           
             &__top{
                 width:50%;
                 height:2px;
@@ -207,6 +214,7 @@ $linecircle :10px;
                 }
 
                 &-bottomcontent{
+                    margin-top:1vw;
                     display:flex;
                     flex-direction:column;
                 }
@@ -251,7 +259,7 @@ $linecircle :10px;
             transition: all 1s ease;
             display: flex;
             flex-direction:column;
-            margin-top: 10vw;
+            margin-top: 5vw;
             overflow: hidden;
             padding-top: calc($linecircle/2);
             &__top{

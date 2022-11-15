@@ -29,7 +29,8 @@ function MyAbout() {
     const photos = document.querySelector(
       ".myabout__content-photos__context"
     ).childNodes;
-    window.addEventListener("scroll", (e) => {
+
+    const myscroll = (e) => {
       myself.forEach((child) => {
         if (window.innerHeight - 100 > child.getBoundingClientRect().top) {
           child.classList.add("slideshow");
@@ -58,7 +59,11 @@ function MyAbout() {
           child.classList.remove("pictures");
         }
       });
-    });
+    };
+    window.addEventListener("scroll", myscroll);
+    return () => {
+      window.removeEventLienter("scroll", myscroll);
+    };
   });
   return (
     <div className="myabout">
@@ -88,14 +93,17 @@ function MyAbout() {
             <div className="myabout__content-myself__right">
               <div className="myabout__content-myself__right-topcontent">
                 <h2>Formal Education</h2>
-                <p>Daegu Hanny University</p>
-                <p>Incheon Ilbo Academy</p>
+                <p>Daegu Hanny University - Bachelor of Cosmetic Science</p>
+                <p>Incheon Ilbo Academy (Bootcamp)</p>
               </div>
               <div className="myabout__content-myself__right-bottomcontent">
                 <h2>Who I am ?</h2>
                 <p>
                   I am a Front-end Developer located in Nsw of Australia. But i
-                  am from Korea.
+                  am from Korea. I just moved to Australia on 21th of July 2022.
+                  I am seriously interested in user interaction to provide a
+                  nice experience to users. It's very fun to challenge new
+                  interaction and to learn for me.
                 </p>
               </div>
             </div>
@@ -105,12 +113,14 @@ function MyAbout() {
           <div className="myabout__content-moreabout__top myabout__content-top"></div>
           <div className="myabout__content-moreabout__context">
             <div className="myabout__content-moreabout__context-left">
-              <h1>More about me</h1>
+              <h1>Random facts about me</h1>
               <p>
                 I would love to listen to korean balade music and watch a marvel
-                movie. I go to a gym everyday to refresh my brain and take care
-                of my best condition. I also find interesting in clone project
-                and learn from a new skills that i don't know of.
+                movie. I used to go to coin Karaoke alone in Korea at least once
+                a week. Singing is the most my favourite hobby even though i
+                can't sing well. I go to a gym everyday to refresh my brain and
+                take care of my best condition. I also find interesting in clone
+                project and learn from a new skills that i don't know of.
               </p>
             </div>
             <div className="myabout__content-moreabout__context-right">

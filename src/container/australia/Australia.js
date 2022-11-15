@@ -59,6 +59,9 @@ function Australia() {
         <span style={{ "--delay": "5300ms" }}>i</span>
         <span style={{ "--delay": "5400ms" }}>a</span>
       </div>
+      <div className="australia__subtitle">
+        <p>Let's work together</p>
+      </div>
       <div className="australia__airplane">
         <AirplaneModel />
       </div>

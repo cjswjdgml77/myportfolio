@@ -36,7 +36,7 @@
         visibility:hidden;
         transition-timing-function: ease;
         transition-duration:0.5s;
-        transition-property: top;
+        transition-property: top, transform;
         &::after{
             content:'';
             width:100%;

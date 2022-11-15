@@ -64,14 +64,14 @@ function MySelf() {
           link={content.link}
         />
       ))}
-      <div
+      {/* <div
         className="myself__morebutton"
         onClick={() => {
           MoreBtnHandler();
         }}
       >
         5+
-      </div>
+      </div> */}
     </div>
   );
 }

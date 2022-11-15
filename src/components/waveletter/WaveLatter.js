@@ -14,6 +14,9 @@ function WaveLatter({ letter }) {
       waveletter.current.style.setProperty(`--${7}`, "1");
       waveletter.current.style.setProperty(`--${8}`, "1");
     }
+    return () => {
+      clearInterval(myInterval);
+    };
   });
   const MakeWaver = () => {
     //polygon(0% 100%, 0 94%, 12% 91%, 30% 90%, 46% 94%,

@@ -53,7 +53,6 @@ function Airplane() {
     });
     window.addEventListener("scroll", MoveAirPlane);
     return () => {
-      console.log("clean");
       window.removeEventListener("scroll", MoveAirPlane);
     };
   }, [airplane]);

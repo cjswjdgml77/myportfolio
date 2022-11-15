@@ -52,9 +52,7 @@ function ContactMe() {
       <Airplane />
       <p className="contactme__title">Get in Touch</p>
       <div className="contactme__email">
-        <p className="contactme__email-content">
-          Do you want to work together or have any questions ?
-        </p>
+        <p className="contactme__email-content"></p>
         <div className="contactme__email-inputbox">
           <div className="contactme__email-inputbox__input">
             <span>cjswjdgml123@gmail.com</span>

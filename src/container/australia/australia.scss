@@ -33,10 +33,9 @@
         justify-content: center;
         padding:3vw;
         z-index: 40;
-        font-size:40px;
+        font-size:2rem;
+        color:white;
         :nth-child(n){
-            transition: all 4s ease;
-            color:$myThemeColor;
             opacity: 0;
         }
         // :nth-child(3){
@@ -54,6 +53,19 @@
             :nth-child{
                 color:green;
             }
+        }
+    }
+    &__subtitle{
+        position:absolute;
+        bottom:1rem;
+        width:100%;
+        z-index: 40;
+        p{
+            font-size: 3rem;
+            text-align:center;
+            color:white;
+            opacity: 0;
+            transform:translateY(100%);
         }
     }
     &__airplane{
@@ -127,11 +139,32 @@
     }
 }
 .australia-title-visible{
-        :nth-child(n){
-            transition-delay: 4100ms;
-            opacity: 1;
-            margin:0px;
-        }
+    :nth-child(n){
+        transition: all 4s ease;
+        transition-delay: 4100ms;
+        opacity: 1;
+        margin:0px;
+    }
+    :nth-child(4){
+        transition-delay: 4100ms;
+        opacity: 1;
+        margin:0px;
+        margin-left:1rem;
+    }
+    :nth-child(6){
+        transition-delay: 4100ms;
+        opacity: 1;
+        margin:0px;
+        margin-left:1rem;
+    }
+}
+.australia-subtitle-visible{
+    p{
+        transition:all 1s ease;
+        transition-delay:7400ms;
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 .australia-airplane-flying{
     animation: flyingAirplane 3s linear both;
