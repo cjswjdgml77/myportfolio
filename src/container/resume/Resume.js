@@ -273,7 +273,7 @@ function Resume() {
           <p className="child-area">Ingleburn, NSW</p>
           <a
             className="child-area"
-            href="https://github.com/cjswjdgml77/myportfolio"
+            href="https://github.com/cjswjdgml77"
             target="_blank rel=opener"
           >
             Github
@@ -286,7 +286,7 @@ function Resume() {
           <h3 className="child-area">KB – Front-End Developer</h3>
         </div>
         <div className="resume__date">
-          <h4 className="child-area">January 2022 – July 2022</h4>
+          <h4 className="child-area">May 2021 – July 2022</h4>
           <h4 className="child-area">Yeouido, Republic of Korea</h4>
         </div>
         <div className="resume__content">
@@ -320,7 +320,7 @@ function Resume() {
           <h3 className="child-area">Eugine – Front-End Developer</h3>
         </div>
         <div className="resume__date">
-          <h4 className="child-area">May 2021 – December 2021</h4>
+          <h4 className="child-area">April 2020 – May 2021</h4>
           <h4 className="child-area">Yeouido, Republic of Korea</h4>
         </div>
         <div className="resume__content">
@@ -370,7 +370,7 @@ function Resume() {
           <p className="child-area">software ,hardware full stack course</p>
         </div>
         <div className="resume__date">
-          <p className="child-area">November 2020 – May 2021</p>
+          <p className="child-area">Augutst – Feburary 2020</p>
           <p className="child-area">Incheon , Republic of Korea</p>
         </div>
         <div className="resume__headline">
@@ -380,9 +380,18 @@ function Resume() {
           <ul>
             <li className="child-area">HTML</li>
             <li className="child-area">CSS</li>
+            <li className="child-area">SCSS</li>
             <li className="child-area">JavaScript</li>
+            <li className="child-area">Node.js</li>
+            <li className="child-area">Express</li>
+            <li className="child-area">Typescript</li>
+            <li className="child-area">Docker</li>
+            <li className="child-area">Jenkins</li>
+            <li className="child-area">Postgresql</li>
+            <li className="child-area">Python</li>
+            <li className="child-area">MongoDb</li>
+            <li className="child-area">Tailwind</li>
             <li className="child-area">React.js</li>
-            <li className="child-area">Bootstrap</li>
             <li className="child-area">Git</li>
             <li className="child-area">NPM</li>
             <li className="child-area">Jira</li>
